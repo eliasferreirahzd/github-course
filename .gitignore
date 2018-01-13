@@ -1,0 +1,4 @@
+#Ocultar arquivos para não serem Trakeados pelo Git
+#Exemplo: *.json / bar.json
+#Oculta todos os arquivo com a extensão .json / Oculta o arquivo em específico
+
