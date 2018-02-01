@@ -1,9 +1,3 @@
-#Git Course
+#REPOSITÓRIO TESTE
 
-Este é um repositório teste para ensinar como o Git funciona.
-
-Saiba mais em [willianjusten.com.br](http://www.willianjusten.com.br)
-
-Gostou do curso? Quer mais? Ajude com uma doação, até um café é válido =)
-
-Mensagem de teste
+Repositório com códigos para fins de uso e reuso em diversas finalidades.
