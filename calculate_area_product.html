@@ -1,0 +1,63 @@
+<button type="button" class="calculate" style="margin: 25px 0 0;">Calcular área</button>
+                                
+<script>
+	$(document).ready(function(){
+		
+		var result = $('.quantity').val();
+		var a = [];
+		var price = $('.product_price').text().replace(',','.').replace('R$ ','');
+		var espessura = '';
+		
+		$('.prod-variant-btn').click(function(){
+		   espessura = $(this).text().replace('mm','');
+		   console.log('Espessura escolhida: ' + espessura + 'mm');
+		});
+		
+		$('.prod-action-quantity .minus').on('click', function(){
+  		    var element = $(this).parent().find('.quantity');
+  		    result = parseInt(element.val()) - 1;
+  		    
+  		    if(result <= 0){
+  		        result = 1;
+  		    }
+  		    
+  		    element.val(result);
+  		    console.log(result);
+  		});
+  		
+  		$('.prod-action-quantity .plus').on('click', function(){
+  		    var element = $(this).parent().find('.quantity');
+  		    result = parseInt(element.val()) + 1;
+  		    element.val(result);
+  		    console.log(result);
+  		});
+  		
+  		$('.area').each(function(index){
+      		//console.log(index);
+      		$(this).blur(function(){
+      		    a[index] = parseFloat($(this).val().replace(',','.'));
+      		    if(a[0] > 200){
+      		        alert('Largura da chapa é até 200cm');
+      		        $(this).val('');
+      		    }
+      		    if(a[1] > 100){
+      		        alert('Comprimento da chapa é até 100cm');
+      		        $(this).val('');
+      		    }
+      		    console.log('index: ' + index + ' - ' + a[index]);
+  		    });
+  		});
+  		
+  		//console.log(a);
+  		
+  		$('.calculate').click(function(){
+  		    //console.log(price);
+      		
+      		var area = parseFloat((a[0]*a[1]*(espessura/10))*price);
+      		area =  parseFloat(area * result);
+      		area = area.toFixed(2).replace('.',',');
+      		console.log('total: ' + area);
+      		$('.product_price, .variant_price').html('R$ ' + area);
+  		});
+	});
+</script>
