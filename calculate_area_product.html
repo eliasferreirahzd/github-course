@@ -1,3 +1,18 @@
+{% for option in options %}
+    {% if option.id in product.available_options %}
+	{% if option.type == 'textarea' %}
+	    <label>{{ option.name }}</label>
+	    <textarea class="form-control" name="option[{{ option.id }}]"></textarea>
+	{% elseif option.type == 'textfield' %}
+
+	    <div style="margin: 15px 0;"></div>
+
+	    <label>{{ option.name }}</label>
+	    <input class="form-control area" name="option[{{ option.id }}]">
+	{% endif %}
+    {% endif %}
+{% endfor %}
+
 <button type="button" class="calculate" style="margin: 25px 0 0;">Calcular área</button>
                                 
 <script>
